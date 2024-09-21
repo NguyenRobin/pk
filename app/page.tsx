@@ -1,101 +1,167 @@
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import Image from "next/image";
+
+const services: Array<{ service: string; price: string; img: string }> = [
+  {
+    service: "Klippning kort hår",
+    price: "350 - 400",
+    img: "/hair-removebg-preview.png",
+  },
+  {
+    service: "Klippning långt hår",
+    price: "från 400",
+    img: "/longhair-removebg-preview.png",
+  },
+  {
+    service: "Klippning + skägg",
+    price: "500 - 700",
+    img: "/fulltrim-removebg-preview.png",
+  },
+  {
+    service: "Endast skulpterat skägg",
+    price: "350 - 400",
+    img: "/knife-removebg-preview.png",
+  },
+  {
+    service: "Hårtvätt samtidigt som klippning",
+    price: "100",
+    img: "/blosser-removebg-preview.png",
+  },
+  {
+    service: "Maskin över hela huvudet",
+    price: "150 - 300",
+    img: "/clipper-removebg-preview.png",
+  },
+];
+
+const openHours = [
+  { day: "Måndag", open: "9.00 - 17.00" },
+  { day: "Tisdag", open: "9.00 - 17.00" },
+  { day: "Onsdag", open: "9.00 - 17.00" },
+  {
+    day: "Torsdag",
+    open: "9.00 - 15.30",
+    information: "Måste bli klar med sista kunden senast 15.30",
+  },
+  {
+    day: "Fredag",
+    open: "9.00 - 15.30",
+    information: "Måste bli klar med sista kunden senast 15.30",
+  },
+  { day: "Lördag", open: "Stängt" },
+  { day: "Söndag", open: "Stängt" },
+];
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <>
+      <div className="hero-image relative flex h-1/2 min-h-96 w-full items-center justify-center bg-[url('/banner.jpg')] bg-cover bg-no-repeat">
+        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+        <div className="absolute z-10 flex flex-col items-center gap-2 text-white">
+          <h1 className="font-bold lg:text-5xl">
+            Professionell Herrfrisering i Uppsala.
+          </h1>
+          <p className="mb-5 lg:text-lg">
+            Vi erbjuder klassisk och modern klippning för alla!
+          </p>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          <div>
+            <Button className="text-brown bg-orange-400 font-bold">Boka</Button>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+
+      <div className="flex w-full justify-between p-5">
+        <div className="flex w-full flex-col">
+          <div className="flex w-full flex-col items-center justify-center gap-2">
+            <h2 className="font-bold lg:text-4xl">Tjänster</h2>
+            <Image src="/2023997.svg" height={100} width={100} alt="mustache" />
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-5">
+            <Card className="min-h-96 w-1/2 min-w-72 border-2">
+              <CardHeader>
+                <CardTitle className="lg:text-xl">PRISER</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="">
+                  {services.map((service) => (
+                    <li
+                      key={service.service}
+                      className="mb-5 flex w-full items-center justify-between"
+                    >
+                      <div className="flex items-center gap-3">
+                        <Image
+                          src={service.img}
+                          height={24}
+                          width={24}
+                          alt={service.service}
+                        />
+                        <p>{service.service}</p>
+                      </div>
+                      <p className="font-semibold">{service.price} kr</p>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        <div className="gap- flex h-full w-full flex-col">
+          <div className="flex w-full flex-col items-center justify-center gap-2 pb-5">
+            <h2 className="font-bold lg:text-4xl">Öppettider</h2>
+            {/* <Image src="/2023997.svg" height={100} width={100} alt="mustache" /> */}
+            <a className="font-bold lg:text-3xl" href={`tel:0709-967570`}>
+              Tel: 0709-967570
+            </a>
+          </div>
+
+          <div className="flex h-full flex-wrap justify-center gap-5">
+            {openHours.map((day) => (
+              <Card className="flex min-h-48 w-full max-w-48 flex-grow flex-col items-center justify-center">
+                <CardHeader>
+                  <CardTitle className="lg:text-xl">{day.day}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex flex-col items-center justify-center">
+                  <p>{day.open}</p>
+                  <p>{day.information ?? ""}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="pl-48 pr-48">
+        <div className="flex h-full w-full flex-col gap-5">
+          <div className="flex w-full justify-center">
+            <h2 className="font-bold lg:text-2xl">Om Oss</h2>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-5">
+            <p>
+              Det har varit herrfrisering i vår lokal sedan 1939 då huset
+              byggdes. David Sondered drev verksamheten från 1939 till 1968 då
+              Kennet Eriksson ( min far) och Lennart Lundgren tog över. De drev
+              Eriksson och Lundgrens herrfrisering tillsammans till 1988 ,
+              Lennart slutade och jag fick möjligheten att göra min praktik där.
+              Mellan 1988-1996 hette salongen Kennet Eriksson frisersalong AB,
+              1996 när jag gick in som delägare ändrades namnet till PK´s
+              Herrfrisering. Nu är det jag, Paul Nordholm, som ensam sköter
+              verksamheten.
+            </p>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
