@@ -37,7 +37,7 @@ const services: Array<{ service: string; price: string; img: string }> = [
 
 const Services = () => {
   return (
-    <div className="flex w-full flex-col gap-10">
+    <div className="flex w-full flex-col gap-10" id="priser">
       <div className="flex w-full flex-col items-center justify-center gap-2">
         <h2 className="text-2xl font-bold lg:text-4xl">Tjänster</h2>
         <Image src="/2023997.svg" height={100} width={100} alt="mustache" />

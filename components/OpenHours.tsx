@@ -20,7 +20,7 @@ const openHours = [
 
 const OpenHours = () => {
   return (
-    <div className="mt-10 flex h-full w-full flex-col gap-5">
+    <div className="mt-10 flex h-full w-full flex-col gap-5" id="oppettider">
       <div className="flex w-full flex-col items-center justify-center gap-3 pb-5">
         <h2 className="text-2xl font-bold">Öppettider</h2>
         {/* <Image src="/2023997.svg" height={100} width={100} alt="mustache" /> */}

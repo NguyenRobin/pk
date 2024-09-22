@@ -15,7 +15,9 @@ const Hero = () => {
         </p>
 
         <div>
-          <Button className="text-brown bg-orange-400 font-bold">Boka</Button>
+          <Button className="text-brown bg-orange-400 font-bold">
+            <a href="#oppettider">Boka</a>
+          </Button>
         </div>
       </div>
     </div>

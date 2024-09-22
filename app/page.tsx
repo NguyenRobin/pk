@@ -22,7 +22,7 @@ const photos = [
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-5" id="hem">
       <Hero />
       <div className="flex w-full flex-col justify-between p-5 sm:flex-row">
         <Services />
