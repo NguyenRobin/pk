@@ -3,13 +3,12 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "./ui/button";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="fixed z-20 flex w-full items-center justify-between bg-black bg-opacity-90 p-5">
+    <div className="fixed z-50 flex w-full items-center justify-between bg-black bg-opacity-90 p-5">
       <div className="flex items-center">
         <Image src="/logo-1.png" height={80} width={80} alt="logo" />
       </div>
@@ -62,13 +61,13 @@ export default function Navbar() {
       </nav>
       {/* Hamburgarmenyn - visas bara om den är öppen på små skärmar */}
       {isMenuOpen && (
-        <nav className="absolute left-0 top-20 z-10 flex w-full flex-col items-center bg-black bg-opacity-90 p-10 text-white sm:hidden">
+        <nav className="absolute left-0 top-20 z-50 flex w-full flex-col items-center bg-black bg-opacity-90 p-10 text-white sm:hidden">
           <ul className="flex flex-col items-center gap-4">
             <li>
               <Link href={"/"}>Hem</Link>
             </li>
             <li>
-              <Link href={"/#Priser"}>Priser</Link>
+              <Link href={"/Priser"}>Priser</Link>
             </li>
             <li>
               <Link href={"/öppettider"}>Öppettider</Link>
