@@ -4,6 +4,7 @@ import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import Navbar from "@/components/Navbar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,31 +32,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased`}
       >
-        <div className="flex min-h-screen w-screen justify-center">
-          {/* <div className="relative w-full max-w-screen-xl"> */}
+        <div className="flex min-h-screen w-screen justify-center overflow-x-hidden">
           <div className="w-full">
-            {/* <div className="fixed z-10 flex w-full max-w-screen-xl items-center justify-between bg-black bg-opacity-50 p-5"> */}
-            <div className="fixed z-20 flex w-full items-center justify-between bg-black bg-opacity-50 p-5">
-              <div className="flex items-center">
-                <Image src="/logo-1.png" height={80} width={80} alt="logo" />
-              </div>
-
-              <nav>
-                <ul className="flex flex-wrap items-center justify-end gap-4 font-bold text-white dark:text-gray-200">
-                  <Link href={"/"}>Hem</Link>
-                  <Link href={"/#Priser"}>Priser</Link>
-                  <Link href={"/öppettider"}>Öppettider</Link>
-                  <Link href={"/drop-in"}>Drop in</Link>
-                  <Link href={"/galleri"}>Galleri</Link>
-                  <Link href={"/kontakt"}>Kontakt</Link>
-                </ul>
-              </nav>
-
-              <Button className="bg-orange-400">
-                <Link href="/login">Boka nu</Link>
-              </Button>
-            </div>
-
+            <Navbar />
             <main className="h-full">{children}</main>
           </div>
         </div>

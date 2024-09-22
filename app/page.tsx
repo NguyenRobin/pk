@@ -56,20 +56,20 @@ const openHours = [
     open: "9.00 - 15.30",
     information: "Måste bli klar med sista kunden senast 15.30",
   },
-  { day: "Lördag", open: "Stängt" },
-  { day: "Söndag", open: "Stängt" },
+  { day: "Helger", open: "Stängt" },
 ];
 
 export default function Home() {
   return (
-    <>
-      <div className="hero-image relative flex h-1/2 min-h-96 w-full items-center justify-center bg-[url('/banner.jpg')] bg-cover bg-no-repeat">
+    <div className="flex flex-col gap-5">
+      <div className="hero-image relative flex h-[500px] w-full items-center justify-center bg-[url('/banner.jpg')] bg-cover bg-no-repeat">
         <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-        <div className="absolute z-10 flex flex-col items-center gap-2 text-white">
-          <h1 className="font-bold lg:text-5xl">
+        <div className="absolute z-10 flex flex-col items-center justify-center gap-4 p-7 text-white">
+          <h1 className="text-center text-3xl font-bold sm:text-5xl">
             Professionell Herrfrisering i Uppsala.
           </h1>
-          <p className="mb-5 lg:text-lg">
+
+          <p className="mb-5 text-sm sm:text-lg">
             Vi erbjuder klassisk och modern klippning för alla!
           </p>
 
@@ -79,15 +79,15 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex w-full justify-between p-5">
-        <div className="flex w-full flex-col">
+      <div className="flex w-full flex-col justify-between p-5 sm:flex-row">
+        <div className="flex w-full flex-col gap-10">
           <div className="flex w-full flex-col items-center justify-center gap-2">
-            <h2 className="font-bold lg:text-4xl">Tjänster</h2>
+            <h2 className="text-2xl font-bold lg:text-4xl">Tjänster</h2>
             <Image src="/2023997.svg" height={100} width={100} alt="mustache" />
           </div>
 
           <div className="flex flex-wrap justify-center gap-5">
-            <Card className="min-h-96 w-1/2 min-w-72 border-2">
+            <Card className="w-full border">
               <CardHeader>
                 <CardTitle className="lg:text-xl">PRISER</CardTitle>
               </CardHeader>
@@ -101,11 +101,11 @@ export default function Home() {
                       <div className="flex items-center gap-3">
                         <Image
                           src={service.img}
-                          height={24}
-                          width={24}
+                          height={20}
+                          width={20}
                           alt={service.service}
                         />
-                        <p>{service.service}</p>
+                        <p className="text-xs">{service.service}</p>
                       </div>
                       <p className="font-semibold">{service.price} kr</p>
                     </li>
@@ -116,9 +116,9 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="gap- flex h-full w-full flex-col">
+        <div className="mt-10 flex h-full w-full flex-col gap-5">
           <div className="flex w-full flex-col items-center justify-center gap-2 pb-5">
-            <h2 className="font-bold lg:text-4xl">Öppettider</h2>
+            <h2 className="text-2xl font-bold">Öppettider</h2>
             {/* <Image src="/2023997.svg" height={100} width={100} alt="mustache" /> */}
             <a className="font-bold lg:text-3xl" href={`tel:0709-967570`}>
               Tel: 0709-967570
@@ -127,7 +127,10 @@ export default function Home() {
 
           <div className="flex h-full flex-wrap justify-center gap-5">
             {openHours.map((day) => (
-              <Card className="flex min-h-48 w-full max-w-48 flex-grow flex-col items-center justify-center">
+              <Card
+                key={day.day}
+                className="flex min-h-48 w-full max-w-48 flex-grow flex-col items-center justify-center"
+              >
                 <CardHeader>
                   <CardTitle className="lg:text-xl">{day.day}</CardTitle>
                 </CardHeader>
@@ -162,6 +165,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
