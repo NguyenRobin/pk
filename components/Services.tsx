@@ -44,7 +44,7 @@ const Services = () => {
       </div>
 
       <div className="flex h-full flex-wrap justify-center gap-5">
-        <Card className="flex h-full flex-col justify-center transition-all duration-200 hover:shadow-lg">
+        <Card className="flex h-full w-full flex-col justify-center transition-all duration-200 hover:shadow-lg">
           <CardHeader>
             <CardTitle className="text-lg">PRISER</CardTitle>
           </CardHeader>

@@ -32,7 +32,7 @@ export default function RootLayout({
         <div className="w-full overflow-x-hidden">
           <Navbar />
           <div className="ml-auto mr-auto w-full max-w-screen-2xl">
-            <main>{children}</main>
+            <main className="w-full">{children}</main>
           </div>
         </div>
       </body>
