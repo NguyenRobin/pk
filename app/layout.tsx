@@ -27,12 +27,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} min-h-screen w-screen antialiased`}
       >
-        <div className="flex min-h-screen w-screen justify-center overflow-x-hidden">
-          <div className="w-full">
-            <Navbar />
-            <main className="h-full">{children}</main>
+        <div className="w-full overflow-x-hidden">
+          <Navbar />
+          <div className="ml-auto mr-auto w-full max-w-screen-2xl">
+            <main>{children}</main>
           </div>
         </div>
       </body>

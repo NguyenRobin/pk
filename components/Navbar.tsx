@@ -1,17 +1,20 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Link from "next/link";
+import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
-import { useRef } from "react";
+import { Button } from "./ui/button";
 
 export default function Navbar() {
   const navMenu = useRef<HTMLDivElement>(null);
-
+  const buttonRef = useRef<HTMLButtonElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const closeOpenMenus = (e: MouseEvent) => {
-    if (isMenuOpen && !navMenu.current?.contains(e.target as Node)) {
+    if (
+      isMenuOpen &&
+      !navMenu.current?.contains(e.target as Node) &&
+      !buttonRef.current?.contains(e.target as Node)
+    ) {
       setIsMenuOpen(false);
     }
   };
@@ -22,32 +25,60 @@ export default function Navbar() {
       document.removeEventListener("mousedown", closeOpenMenus);
     };
   }, [isMenuOpen]);
-  console.log(isMenuOpen);
+
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
+
   return (
     <div className="fixed z-50 flex w-full items-center justify-between bg-black bg-opacity-90 p-5">
       <div className="flex items-center">
-        <Image src="/logo-1.png" height={80} width={80} alt="logo" />
+        <a href="#hem">
+          <Image src="/logo-1.png" height={80} width={80} alt="logo" />
+        </a>
       </div>
 
-      <div className="block sm:hidden">
+      <div className="flex gap-4 sm:hidden">
+        <Button className="border border-white">
+          <a href="#oppettider">Drop-in</a>
+        </Button>
+
         <button
+          ref={buttonRef}
           className="text-white focus:outline-none"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          onClick={toggleMenu}
         >
-          <svg
-            className="h-6 w-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            ></path>
-          </svg>
+          {!isMenuOpen ? (
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          ) : (
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          )}
         </button>
       </div>
 
@@ -63,7 +94,7 @@ export default function Navbar() {
             <a href="#oppettider">Öppettider</a>
           </li>
           <li>
-            <a href="#drop-in">Drop-in</a>
+            <a href="#dropin">Drop-in</a>
           </li>
           <li>
             <a href="#kontakt">Kontakt</a>
@@ -71,30 +102,32 @@ export default function Navbar() {
         </ul>
       </nav>
 
-      {isMenuOpen && (
-        <nav
-          ref={navMenu}
-          className="absolute left-0 top-20 z-50 flex w-full flex-col items-center bg-black bg-opacity-90 p-10 text-white sm:hidden"
-        >
+      <div
+        ref={navMenu}
+        className={`${
+          isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+        } absolute left-0 top-20 z-50 w-full overflow-hidden bg-black bg-opacity-90 transition-all duration-500 ease-in-out sm:hidden`}
+      >
+        <nav className="p-10 text-white">
           <ul className="flex flex-col items-center gap-4">
-            <li onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <li onClick={() => setIsMenuOpen(false)}>
               <a href="#hem">Hem</a>
             </li>
-            <li onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <li onClick={() => setIsMenuOpen(false)}>
               <a href="#priser">Priser</a>
             </li>
-            <li onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <li onClick={() => setIsMenuOpen(false)}>
               <a href="#oppettider">Öppettider</a>
             </li>
-            <li onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              <a href="#drop-in">Drop-in</a>
+            <li onClick={() => setIsMenuOpen(false)}>
+              <a href="#oppettider">Drop-in</a>
             </li>
-            <li onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <li onClick={() => setIsMenuOpen(false)}>
               <a href="#kontakt">Kontakt</a>
             </li>
           </ul>
         </nav>
-      )}
+      </div>
     </div>
   );
 }

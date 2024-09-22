@@ -39,12 +39,12 @@ const Services = () => {
   return (
     <div className="flex w-full flex-col gap-10" id="priser">
       <div className="flex w-full flex-col items-center justify-center gap-2">
-        <h2 className="text-2xl font-bold lg:text-4xl">Tjänster</h2>
+        <h2 className="text-2xl font-bold">Tjänster</h2>
         <Image src="/2023997.svg" height={100} width={100} alt="mustache" />
       </div>
 
-      <div className="flex flex-wrap justify-center gap-5">
-        <Card className="w-full border">
+      <div className="flex h-full flex-wrap justify-center gap-5">
+        <Card className="flex h-full flex-col justify-center transition-all duration-200 hover:shadow-lg">
           <CardHeader>
             <CardTitle className="text-lg">PRISER</CardTitle>
           </CardHeader>
@@ -55,14 +55,14 @@ const Services = () => {
                   key={service.service}
                   className="mb-5 flex w-full items-center justify-between"
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-4">
                     <Image
                       src={service.img}
                       height={20}
                       width={20}
                       alt={service.service}
                     />
-                    <p className="text-xs">{service.service}</p>
+                    <p className="text-sm md:text-base">{service.service}</p>
                   </div>
                   <p className="font-semibold">{service.price} kr</p>
                 </li>
