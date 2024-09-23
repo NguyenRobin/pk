@@ -37,7 +37,10 @@ const OpenHours = () => {
       {/* <div className="flex flex-col gap-3"> */}
       <div className="grid auto-rows-fr gap-2 md:grid-cols-2 lg:grid-cols-3">
         {openHours.map((day) => (
-          <Card key={day.day} className="flex h-full flex-col justify-center">
+          <Card
+            key={day.day}
+            className="flex h-full flex-col justify-center border-slate-950"
+          >
             <CardContent className="flex items-center justify-between gap-2 p-5 md:flex-col">
               <p className="font-bold">{day.day}</p>
               <p className="font-bold">{day.open}</p>

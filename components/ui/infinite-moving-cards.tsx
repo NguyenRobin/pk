@@ -96,6 +96,7 @@ export const InfiniteMovingCards = ({
                 width={350}
                 height={350}
                 alt={`photos of products`}
+                style={{ height: "auto" }}
               />
             </div>
           </li>

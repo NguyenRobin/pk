@@ -32,10 +32,16 @@ export default function Navbar() {
 
   return (
     <div className="fixed z-50 flex w-full items-center justify-center bg-black bg-opacity-90 p-5">
-      <div className="flex w-full max-w-screen-2xl items-center justify-between">
-        <div className="flex max-w-screen-2xl items-center">
+      <div className="flex w-full items-center justify-between">
+        <div className="flex items-center">
           <a href="#hem">
-            <Image src="/logo-1.png" height={80} width={80} alt="logo" />
+            <Image
+              src="/logo-1.png"
+              height={80}
+              width={80}
+              alt="logo"
+              style={{ height: "auto" }}
+            />
           </a>
         </div>
 

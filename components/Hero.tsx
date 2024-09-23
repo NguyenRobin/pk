@@ -3,10 +3,10 @@ import { Button } from "./ui/button";
 
 const Hero = () => {
   return (
-    <div className="hero-image relative flex h-[500px] w-full items-center justify-center bg-[url('/banner.jpg')] bg-cover bg-no-repeat">
+    <div className="hero-image relative flex h-screen w-full items-center justify-center bg-[url('/banner.jpg')] bg-cover bg-top bg-no-repeat md:h-[80vh] md:bg-top">
       <div className="absolute inset-0 bg-black bg-opacity-30"></div>
       <div className="absolute z-10 flex flex-col items-center justify-center gap-4 p-7 text-white">
-        <h1 className="text-center text-3xl font-bold sm:text-5xl">
+        <h1 className="animate-fadeIn text-center text-3xl font-bold sm:text-5xl">
           Professionell Herrfrisering i Uppsala.
         </h1>
 

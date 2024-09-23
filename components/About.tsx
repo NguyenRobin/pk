@@ -2,13 +2,13 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="relative min-h-[500px] bg-[url('/about.jpg')] bg-cover bg-center bg-no-repeat">
+    <div className="relative flex min-h-[500px] items-center bg-[url('/about.jpg')] bg-cover bg-center bg-no-repeat">
       <div className="absolute inset-0 bg-black opacity-70" />
 
-      <div className="z-12 relative p-10 text-white">
+      <div className="z-12 relative flex flex-col items-center justify-center p-10 text-white">
         <h2 className="text-center text-3xl font-bold">Om Oss</h2>
         <div className="mt-4">
-          <p className="text-lg">
+          <p className="text-sm md:text-lg">
             Det har varit herrfrisering i vår lokal sedan 1939 då huset byggdes.
             David Sondered drev verksamheten från 1939 till 1968 då Kennet
             Eriksson (min far) och Lennart Lundgren tog över. De drev Eriksson

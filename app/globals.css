@@ -93,3 +93,18 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-in-out forwards;
+}

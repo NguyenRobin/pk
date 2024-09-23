@@ -40,11 +40,17 @@ const Services = () => {
     <div className="flex w-full flex-col gap-10" id="priser">
       <div className="flex w-full flex-col items-center justify-center gap-2">
         <h2 className="text-2xl font-bold">Tjänster</h2>
-        <Image src="/2023997.svg" height={100} width={100} alt="mustache" />
+        <Image
+          src="/2023997.svg"
+          height={50}
+          width={50}
+          alt="mustache"
+          style={{ width: "120px", height: "auto" }}
+        />
       </div>
 
       <div className="flex h-full flex-wrap justify-center gap-5">
-        <Card className="flex h-full w-full flex-col justify-center transition-all duration-200 hover:shadow-lg">
+        <Card className="flex h-full w-full flex-col justify-center border-slate-950 transition-all duration-200 hover:shadow-lg">
           <CardHeader>
             <CardTitle className="text-lg">PRISER</CardTitle>
           </CardHeader>
@@ -61,6 +67,7 @@ const Services = () => {
                       height={20}
                       width={20}
                       alt={service.service}
+                      style={{ width: "auto" }}
                     />
                     <p className="text-sm md:text-base">{service.service}</p>
                   </div>
