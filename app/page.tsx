@@ -3,10 +3,7 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import OpenHours from "@/components/OpenHours";
 import Services from "@/components/Services";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
-import Image from "next/image";
 
 const photos = [
   { img: "/moving-card-1.jpg" },
