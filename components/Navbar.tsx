@@ -100,7 +100,7 @@ export default function Navbar() {
               <a href="#oppettider">Öppettider</a>
             </li>
             <li>
-              <a href="#dropin">Drop-in</a>
+              <a href="#oppettider">Drop-in</a>
             </li>
             <li>
               <a href="#kontakt">Kontakt</a>
